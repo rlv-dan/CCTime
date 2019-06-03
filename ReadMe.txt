@@ -147,6 +147,6 @@ Website: https://github.com/rickyah/ini-parser
 
 --- History ---
 
-v1.00	2019-04-11	First public release
+v1.00	2019-06-03	First public release
 v1 RC	2019-02-08	Distributed internally at work
 v0.00	2018-04-xx	Developed for personal usage
