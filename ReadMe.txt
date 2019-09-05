@@ -29,6 +29,11 @@ Simply unzip and run. The program is portable and will only write to its own fol
 For convenience you'll probably want to put a shotycut to CCTime.exe in your startup folder. (Tip: to find 
 this folder press Win+R and type "shell:startup")
 
+--- Update ---
+
+To update to a newer version, simply exctract and overwrite the old version or extract to a new location 
+and copy the old data folder.
+
 
 --- Usage ---
 
@@ -70,6 +75,7 @@ The window title shows the total time spent *today*
   - A background timer automatically keeps track of how much time has been spent today (even when viewing other 
     days!).
   - Toggle the timer on/off using the clock button (@)
+  - Right click the clock button (@) to pause the timer for x minutes
 
 "Total" row shows the total time spent the day you are viewing
   - Use the (<15) and (15>) buttons to shift total time to nearest 15 min
@@ -147,6 +153,11 @@ Website: https://github.com/rickyah/ini-parser
 
 --- History ---
 
+v1.01	2019-09-05	Now you can pause the timer for a while by right clicking on the clock icon
+					Fixed a crash bug when right clicking the canvas
+
 v1.00	2019-06-03	First public release
+
 v1 RC	2019-02-08	Distributed internally at work
+
 v0.00	2018-04-xx	Developed for personal usage
