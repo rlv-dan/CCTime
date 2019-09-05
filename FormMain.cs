@@ -22,9 +22,17 @@ namespace CCTime
 		private DateTime currentlyViewingDate;
 
 		private System.Timers.Timer minuteTimer;
-		private int minutTimerSeconds = 0;
+		private int minuteTimerSeconds = 0;
+		private int pausedTimerMinutesLeft = 0;
 
 		private bool okToHide = true;
+
+		//private enum TimerState
+		//{
+		//    Off,
+		//    On,
+		//    Paused
+		//}
 
 		public FormMain()
 		{
@@ -224,24 +232,34 @@ namespace CCTime
 			minuteTimer.Elapsed += delegate( object source, ElapsedEventArgs ev )
 			{
 				// This runs once a second
-				minutTimerSeconds++;
+				minuteTimerSeconds++;
 				var todayTasks = TaskManager.GetToday();
 
-				if( minutTimerSeconds >= 60 )
+				if( minuteTimerSeconds >= 60 )
 				{	// one minute has passed
-					minutTimerSeconds = 0;
-					foreach( var t in todayTasks )
+					minuteTimerSeconds = 0;
+
+					if( pausedTimerMinutesLeft > 0 )
 					{
-						if( t.Type == TaskType.Total )
+						// paused
+						pausedTimerMinutesLeft--;
+					}
+					else
+					{
+						// normal
+						foreach( var t in todayTasks )
 						{
-							t.Minutes++;
-						}
-						else if( t.Type == TaskType.Normal && t.AutoTick )
-						{
-							t.Minutes++;
+							if( t.Type == TaskType.Total )
+							{
+								t.Minutes++;
+							}
+							else if( t.Type == TaskType.Normal && t.AutoTick )
+							{
+								t.Minutes++;
+							}
 						}
 					}
-					
+
 					RefreshCurrentView();
 				}
 
@@ -251,8 +269,19 @@ namespace CCTime
 					{
 						this.Invoke( new Action( () =>
 						{
-							int hours = ( todayTasks[0].Minutes - todayTasks[0].Minutes % 60 ) / 60;
-							this.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + "  [" + hours.ToString( "D2" ) + ":" + ( todayTasks[0].Minutes - hours * 60 ).ToString( "D2" ) + ":" + minutTimerSeconds.ToString( "D2" ) + "]";
+							if( pausedTimerMinutesLeft > 0 )
+							{
+								this.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + "  [PAUSED FOR " + pausedTimerMinutesLeft + " MIN]";
+							}
+							else
+							{
+								if( buttonTimerOnOff.Image != CCTime.Properties.Resources.clock )
+								{
+									buttonTimerOnOff.Image = CCTime.Properties.Resources.clock;
+								}
+								int hours = ( todayTasks[0].Minutes - todayTasks[0].Minutes % 60 ) / 60;
+								this.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + "  [" + hours.ToString( "D2" ) + ":" + ( todayTasks[0].Minutes - hours * 60 ).ToString( "D2" ) + ":" + minuteTimerSeconds.ToString( "D2" ) + "]";
+							}
 						} ) );
 					}
 				}
@@ -765,9 +794,40 @@ namespace CCTime
 			new Report( currentlyViewingDate );
 		}
 
-		private void buttonTimerOnOff_Click( object sender, EventArgs e )
+		private void buttonTimerOnOff_MouseUp( object sender, MouseEventArgs e )
 		{
-			SetTimerState( !minuteTimer.Enabled );
+			if( e.Button == System.Windows.Forms.MouseButtons.Right )
+			{
+				if( minuteTimer.Enabled )
+				{
+					var hideState = okToHide;
+					okToHide = false;
+
+					var response = Microsoft.VisualBasic.Interaction.InputBox( "For how long do you want to pause the timer?", "Pause Timer", Settings.DefaultMinutesToPause.ToString() );
+					int pauseTime;
+					Int32.TryParse(response, out pauseTime);
+					if( pauseTime != 0 )
+					{
+						pausedTimerMinutesLeft = pauseTime;
+						buttonTimerOnOff.Image = CCTime.Properties.Resources.clock_gray;
+					}
+
+					okToHide = hideState;
+				}
+			}
+			else
+			{
+				if( pausedTimerMinutesLeft > 0 )
+				{
+					// turn off pause
+					pausedTimerMinutesLeft = 0;
+				}
+				else
+				{
+					// normal toggle on/off
+					SetTimerState( !minuteTimer.Enabled );
+				}
+			}
 		}
 
 		private void buttonAlwaysOnTop_Click( object sender, EventArgs e )

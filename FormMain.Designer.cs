@@ -190,7 +190,7 @@
 			this.buttonTimerOnOff.TabIndex = 17;
 			this.toolTip.SetToolTip(this.buttonTimerOnOff, "Toggle timer on and off");
 			this.buttonTimerOnOff.UseVisualStyleBackColor = true;
-			this.buttonTimerOnOff.Click += new System.EventHandler(this.buttonTimerOnOff_Click);
+			this.buttonTimerOnOff.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonTimerOnOff_MouseUp);
 			// 
 			// buttonNextDate
 			// 

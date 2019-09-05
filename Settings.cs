@@ -27,6 +27,7 @@ namespace CCTime
 		public static bool DontCopyTasksWithoutTime { get; set; }
 		public static bool ReturnToTodayWhenRestoring { get; set; }
 		public static int MinutesToAddToNewTasks { get; set; }
+		public static int DefaultMinutesToPause { get; set; }
 
 		public static int ReportWindowWidth { get; set; }
 		public static int ReportWindowHeight { get; set; }
@@ -66,6 +67,7 @@ namespace CCTime
 				Settings.DontCopyTasksWithoutTime = bool.Parse( data["General"]["DontCopyTasksWithoutTime"] );
 				Settings.ReturnToTodayWhenRestoring = bool.Parse( data["General"]["ReturnToTodayWhenRestoring"] );
 				Settings.MinutesToAddToNewTasks = int.Parse( data["General"]["MinutesToAddToNewTasks"] );
+				Settings.DefaultMinutesToPause = int.Parse( data["General"]["DefaultMinutesToPause"] );
 
 				Settings.ReportWindowWidth = int.Parse( data["Report"]["ReportWindowWidth"] );
 				Settings.ReportWindowHeight = int.Parse( data["Report"]["ReportWindowHeight"] );
@@ -102,6 +104,7 @@ namespace CCTime
 				Settings.DontCopyTasksWithoutTime = false;
 				Settings.ReturnToTodayWhenRestoring = true;
 				Settings.MinutesToAddToNewTasks = 0;
+				Settings.DefaultMinutesToPause = 60;
 
 				Settings.ReportWindowWidth = 960;
 				Settings.ReportWindowHeight = 480;
