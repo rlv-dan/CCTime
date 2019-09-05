@@ -85,7 +85,7 @@
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(36, 15);
 			this.label2.TabIndex = 6;
-			this.label2.Text = "v1.00";
+			this.label2.Text = "v1.01";
 			// 
 			// FormAbout
 			// 
