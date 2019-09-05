@@ -519,10 +519,13 @@ namespace CCTime
 
 		private void objectListView1_CellRightClick( object sender, CellRightClickEventArgs e )
 		{
-			var task = e.Item.RowObject as Task;
-			task.AutoTick = !task.AutoTick;
-			//e.Item.Selected = false;
-			RefreshCurrentView();
+			if( e.Item != null )
+			{
+				var task = e.Item.RowObject as Task;
+				task.AutoTick = !task.AutoTick;
+				//e.Item.Selected = false;
+				RefreshCurrentView();
+			}
 		}
 
 		// --- GUI Buttons --------------------------------------------------------------
