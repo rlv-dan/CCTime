@@ -15,6 +15,7 @@ Download binaries at [https://www.rlvision.com/downloads.php](https://www.rlvisi
 
 ![CCTime main window](https://www.rlvision.com/cctime/cctime.png)
 
+![Weekly time report](https://www.rlvision.com/cctime/cctime-report.png)
 
 ## Usage
 
