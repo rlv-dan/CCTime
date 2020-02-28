@@ -40,17 +40,17 @@ CCTime sits quietly in the system tray. Click the icon to show the main window:
 
 At a glance:
   - Total time automatically ticks. It shows how much time you've been working each day
-  - Click the (+) button to add a task
+  - Click the `(+)` button to add a task
   - As you work throughout the day, click the buttons next to tasks to distribute time
   - Unaccounted time = Total time - Time allocated to tasks. (0 means all time is accounted for!)
-  - Click (#) to show a weekly summary report
-  - Clicking outside the window automatically hides CCTime. Use the pin (/) to stay on top
+  - Click `(#)` to show a weekly summary report
+  - Clicking outside the window automatically hides CCTime. Use the pin `(/)` to stay on top
 
 That's the basics. Start using CCTime or read on to learn the details!
 
 CCTime shows one day at a time
   - Typically this is today's date, but you can view and modify old dates too
-  - Change day using the arrow buttons (<) and (>)
+  - Change day using the arrow buttons `(<)` and `(>)`
   - Click the date label ("Monday June 1" above) for a calendar view
   - Each new day you start CCTime, this date is automatically added and previous day's tasks are copied
   - Note that only days when CCTime was started or dates that have been explicitly added are available
@@ -58,10 +58,10 @@ CCTime shows one day at a time
 The window title shows the total time spent *today*
   - A background timer automatically keeps track of how much time has been spent today (even when viewing other 
     days!).
-  - Toggle the timer on/off using the clock button (@)
+  - Toggle the timer on/off using the clock button `(@)`
 
 "Total" row shows the total time spent the day you are viewing
-  - Use the (<15) and (15>) buttons to shift total time to nearest 15 min
+  - Use the `(<15)` and `(15>)` buttons to shift total time to nearest 15 min
   - Hold Click to instead add and subtract 15 minutes
 
 "Unaccounted" row shows the difference between total time and time spent on all task
@@ -70,7 +70,7 @@ The window title shows the total time spent *today*
 Next comes all the tasks.
   - Double click to edit the task title.
   - Use a semicolon to add a comment to a task ("task title;the comment"). Comments are hidden but indicated 
-    by an * (see Task 2 above). The report will show comments.
+    by an `*` (see Task 2 above). The report will show comments.
   - For each task you see how many hours you've spent on that task this day
   - Use the buttons to add time to the task. Hold Shift to instead subtract time, or Ctrl to shift 
     time to nearest 15 minutes.
@@ -78,12 +78,12 @@ Next comes all the tasks.
     front of the name (see Task 3 above).
 
 The button on the lower left hand side manages tasks and days
- - Add and remove *tasks* using (+) and (-)
- - Ctrl-Click (+) to add a new day or (-) to remove current *day*
- - Alt-Click (-) to remove the current day's tasks that have 0 time
- - (U) and (D) moves tasks up and down a step (or to top/bottom if holding Ctrl)
+ - Add and remove *tasks* using `(+)` and `(-)`
+ - Ctrl-Click `(+)` to add a new day or `(-)` to remove current *day*
+ - Alt-Click `(-)` to remove the current day's tasks that have 0 time
+ - `(U)` and `(D)` moves tasks up and down a step (or to top/bottom if holding Ctrl)
 
-Click the calendar icon (#) to generate a report of the current week.
+Click the calendar icon `(#)` to generate a report of the current week.
   - The report shows all tasks and the amount spent per day, plus summary columns and rows
   - The report includes comments. Two tasks with the same name but different comments are treated as 
     different tasks
